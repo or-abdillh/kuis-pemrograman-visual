@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-// Julia Lestari Syahisti
-// 20302028
+// Oka Rajeb Abdillah
+// 20302022
 
 package kuispemrogramanvisual.frame;
 

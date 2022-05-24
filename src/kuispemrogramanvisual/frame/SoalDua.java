@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Oka Rajeb Abdillah
+// 20302022
+
 package kuispemrogramanvisual.frame;
 
+import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +35,6 @@ public class SoalDua {
          JButton btnKeluar = new JButton("Keluar");
         
          Object data[][] = {
-             { "No.", "NIM",  "Nama", " Mata Kuliah", "Nilai" },
             { "01", "20302001",  "Agus", "Pemrograman Visual", "90" },
             { "02", "20302002",  "Andi", "Pemrograman Visual", "80" },
             { "03", "20302003",  "Ani", "Pemrograman Visual", "75" },
@@ -39,17 +43,22 @@ public class SoalDua {
         
         String columnNames[] = { "No", "NIM", "Nama", "Mata Kuliah", "Nilai" };
         
-        DefaultTableModel tableModel = new DefaultTableModel( data, columnNames ) {
-             @Override public Class<?> getColumnClass(int column) {
-      return column == 1 ? DefaultComboBoxModel.class : String.class;
-    }
-        };
+        DefaultTableModel tableModel = new DefaultTableModel();
         
         JTable table = new JTable(tableModel);
-        JTableHeader header = table.getTableHeader();
-        frame.add(table);
-        frame.setSize(800, 180);
+        tableModel.addColumn("No");
+        tableModel.addColumn("NIM");
+        tableModel.addColumn("Nama");
+        tableModel.addColumn("Mata Kuliah");
+        tableModel.addColumn("Nilai");
         
+        tableModel.insertRow(0, data[0]);
+        tableModel.insertRow(0, data[1]);
+        tableModel.insertRow(0, data[2]);
+        tableModel.insertRow(0, data[3]);
+        
+        frame.setSize(800, 180);
+        frame.add( new JScrollPane(table) );
         frame.setVisible(true);
         
          //  3. Meletakkan element button login 
@@ -60,13 +69,11 @@ public class SoalDua {
         
         frame.setLayout(null);
         
-        frame.setVisible(true);
-        
         //  5. Membuat action click untuk keluar
         btnKeluar.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //  5. Membuat message box untuk keluar
+                //  6. Membuat message box untuk keluar
                 int confirm = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Keluar lah", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
                 if (confirm == 0) {
