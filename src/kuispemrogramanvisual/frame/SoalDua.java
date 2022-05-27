@@ -31,16 +31,19 @@ public class SoalDua {
         JFrame frame = new JFrame("Contoh Soal 2");
         JPanel panel = new JPanel();
         
-         // 2. Mendefinsikan element button untuk login
+         // 2. Mendefinsikan element button untuk keluar
          JButton btnKeluar = new JButton("Keluar");
         
+         // 3. Menambahkan NIM
          Object data[][] = {
             { "01", "20302001",  "Agus", "Pemrograman Visual", "90" },
             { "02", "20302002",  "Andi", "Pemrograman Visual", "80" },
             { "03", "20302003",  "Ani", "Pemrograman Visual", "75" },
             { "04",  "20302004", "April", "Pemrograman Visual", "70" }
         };
-        
+
+
+        // 4. Menambahkan column "NIM"
         String columnNames[] = { "No", "NIM", "Nama", "Mata Kuliah", "Nilai" };
         
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -61,19 +64,19 @@ public class SoalDua {
         frame.add( new JScrollPane(table) );
         frame.setVisible(true);
         
-         //  3. Meletakkan element button login 
-        btnKeluar.setBounds(15, 150, 750, 25);
+         //  5. Meletakkan element button keluar 
+         btnKeluar.setBounds(15, 150, 750, 25);
         
-         // 4. Menambahkan btnLogin pada frame
+         // 6. Menambahkan btnKeluar pada frame
          frame.add(btnKeluar);
         
-        frame.setLayout(null);
+         frame.setLayout(null);
         
-        //  5. Membuat action click untuk keluar
+        //  7. Membuat action click untuk keluar
         btnKeluar.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //  6. Membuat message box untuk keluar
+                //  8. Membuat message box untuk keluar
                 int confirm = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Keluar lah", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
                 if (confirm == 0) {
